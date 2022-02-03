@@ -1,26 +1,27 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-const Parent = styled.div``;
-const Btn = styled.button`
-  color: white;
-  background-color: tomato;
-  border: 0;
-  border-radius: 15px;
+const rotationAni = keyframes`
+  from {
+    transform: rotate(0deg);
+  } 
+  to {
+    transform: rotate(360deg);
+  }
 `;
 
-const Input = styled.input.attrs({ required: true })`
-  background-color: whitesmoke;
-  padding: 8px 12px;
+const Parent = styled.div``;
+
+const Box = styled.div`
+  height: 200px;
   width: 200px;
+  background-color: tomato;
+  animation: ${rotationAni} 1s linear infinite;
 `;
 
 function App() {
   return (
     <Parent>
-      <Input placeholder="아이디" />
-      <Input placeholder="비밀번호" />
-      <Btn>로그인</Btn>
-      <Btn as="a">로그아웃</Btn>
+      <Box />
     </Parent>
   );
 }
