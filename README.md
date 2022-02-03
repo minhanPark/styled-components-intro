@@ -24,7 +24,7 @@ function App() {
 
 Btn은 button 태그로 만들었지만 as 속성을 통해서 특정 태그를 전달하면 특정태그로 사용가능
 
-### styled-components로 속성 주기
+## styled-components로 속성 주기
 
 ```js
 const Input = styled.input.attrs({ required: true })`
@@ -35,3 +35,39 @@ const Input = styled.input.attrs({ required: true })`
 ```
 
 위처럼 attrs를 통해서 속성을 전달할 수 있음. 해당 input 태그는 다 required가 true가 된다.
+
+## Dark모드를 위한 Theme 활용
+
+```js
+//index.js
+
+import { ThemeProvider } from "styled-components";
+
+const Dark = {
+  bgColor: "black",
+  fontColor: "white",
+};
+
+const normal = {
+  bgColor: "white",
+  fontColor: "black",
+};
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ThemeProvider theme={Dark}>
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
+```
+
+index.js에서 App을 ThemeProvider로 감싸준다. 그리고 Theme 속성에 색이 담긴 객체를 전달해준다.(다크 모드나 일반 모드 시 해당 객체가 바뀌도록 설정해주면 됨)
+
+```js
+const SHeader = styled.h1`
+  color: ${(props) => props.theme.fontColor};
+`;
+```
+
+위처럼 theme가 추가되는데 여기서 공통 키값을 넣어주면 된다.

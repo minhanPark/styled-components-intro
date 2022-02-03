@@ -1,27 +1,22 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
-const rotationAni = keyframes`
-  from {
-    transform: rotate(0deg);
-  } 
-  to {
-    transform: rotate(360deg);
-  }
+const Parent = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: ${(props) => props.theme.bgColor};
+  align-items: center;
 `;
 
-const Parent = styled.div``;
-
-const Box = styled.div`
-  height: 200px;
-  width: 200px;
-  background-color: tomato;
-  animation: ${rotationAni} 1s linear infinite;
+const SHeader = styled.h1`
+  color: ${(props) => props.theme.fontColor};
 `;
 
 function App() {
   return (
     <Parent>
-      <Box />
+      <SHeader>ㅎㅔ더</SHeader>
     </Parent>
   );
 }
