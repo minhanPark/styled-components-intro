@@ -83,4 +83,6 @@ yarn add typescript @types/node @types/react @types/react-dom @types/jest
 ```
 
 위와 같이 타입스크립트와 타입들을 다운로드 받는다.  
-그리고 **_src/react-app-env.d.ts 파일과 tsconfig.json을 추가_**해준다
+기존에 js 확장자들을 ts나 tsx로 바꾼다.  
+그리고 **src/react-app-env.d.ts 파일과 tsconfig.json을 추가**해준다  
+[참고 문서](https://create-react-app.dev/docs/adding-typescript/#installation)
