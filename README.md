@@ -71,3 +71,16 @@ const SHeader = styled.h1`
 ```
 
 위처럼 theme가 추가되는데 여기서 공통 키값을 넣어주면 된다.
+
+## 기존 프로젝트에 타입스크립트 추가
+
+```bash
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+
+# or
+
+yarn add typescript @types/node @types/react @types/react-dom @types/jest
+```
+
+위와 같이 타입스크립트와 타입들을 다운로드 받는다.  
+그리고 **_src/react-app-env.d.ts 파일과 tsconfig.json을 추가_**해준다
