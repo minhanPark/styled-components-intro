@@ -86,3 +86,41 @@ yarn add typescript @types/node @types/react @types/react-dom @types/jest
 기존에 js 확장자들을 ts나 tsx로 바꾼다.  
 그리고 **src/react-app-env.d.ts 파일과 tsconfig.json을 추가**해준다  
 [참고 문서](https://create-react-app.dev/docs/adding-typescript/#installation)
+
+## Form에 타입 추가
+
+기본적으로 React에서 event는 타입으로 React.FormEvent를 가진다.
+
+```js
+import React, { useState } from "react";
+
+function App() {
+  const [value, setValue] = useState < string > "";
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    // input 엘리먼트니까 HTMLInputElement
+    const {
+      currentTarget: { value },
+    } = e;
+    setValue(value);
+  };
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // form 엘리먼트니까 HTMLFormElement
+    e.preventDefault();
+    console.log(value);
+  };
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={handleChange}
+          placeholder="test character"
+          value={value}
+        />
+        <button>Submit</button>
+      </form>
+    </>
+  );
+}
+```
+
+기본적으로 엘리먼트가 뭐냐에 따라서 제너릭 타입으로 넣어주면 된다.
